@@ -272,3 +272,39 @@ tag: High CSharp
 * 格式：
 	1. 静态的类进行扩展：Public Static class StringExtension{}
 	2. 函数参数为this修饰扩展的类型
+	3. 即使是静态的函数，但是同样通过对象来书写；编译器会修改为静态访问方式，用于区分，扩展方法
+* 如果在扩展函数的原函数中有同名函数，则优先调用原函数
+* 且扩展函数，需要包含在相对应的原函数所拥有的命名空间内
+* Linq(Language Integrated Query)语法，运用很多扩展方法的写法
+
+`
+
+public static class StringExtension
+    {
+        public static int WordsofCount(this string s) => s.Split(" ").Length;
+    }
+
+    class A
+    {
+        public string x;
+
+
+    }
+
+    static class AExtension
+    {
+        public static void SendMessage(this A a) => Console.WriteLine(a.x);
+    }
+    
+## Object类 ##
+
+* 所有类的继承者
+* 意义在：可以访问Object类定义的公有和受保护的成员方法
+	* ToString（）:获取对象的类型（字符串形式）
+	* GetHashCode（）：若对象放在名为散列表或者字典的数据结构中时，提取hash值
+	* Equals（）和ReferenceEquals（）
+		* 前者：
+		* 后者：
+	* Finalize（）：对象作为垃圾的时候调用
+	* GetType（）：获取对象所属的类型
+	* MemberwiseClone（）：返回值，对副本的引用；对于值类型，就是装箱的引用
