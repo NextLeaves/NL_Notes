@@ -1,0 +1,41 @@
+---1---OOP语言
+
+cpt 1：	C#简介
+cpt 2：	编写C#程序
+cpt 3：	变量和表达式
+cpt 4：	流程控制
+cpt 5：	变量的更多内容
+cpt 6：	函数
+cpt 7：	调试和错误处理
+cpt 8：	面向对象编程简介
+cpt 9：	定义类
+cpt 10：	定义类成员
+cpt 11：	集合、比较和转换
+cpt 12：	泛型
+cpt 13：	高级C#技术
+
+
+---2---Windows编程
+
+cpt 14：	基本桌面编程
+cpt 15：	高级桌面编程
+
+
+---3---云编程
+
+cpt 16：	基本的云编程
+cpt 17：	高级云编程和部署
+
+
+---4---数据访问
+
+cpt 18：	文件
+cpt 19：	XML和JSON
+cpt 20：	LINQ
+cpt 21：	数据库
+
+
+---5--其他技术
+cpt 22：	Windows Communication Foundation
+cpt 23:	通用应用程序
+

@@ -1,0 +1,59 @@
+---1---C#语言
+
+cpt 1:	.NET应用程序体系结构
+cpt 2：	核心C#
+cpt 3：	对象和类型
+cpt 4：	继承
+cpt 5：	托管和非托管的资源
+cpt 6：	泛型
+cpt 7：	数组和元组
+cpt 8：	运算符和类型强制转换
+cpt 9：	委托、Lambda表达式和事件
+cpt 10：	字符串和正则表达式
+cpt 11：	集合
+cpt 12：	特殊的集合
+cpt 13：	LINQ
+cpt 14：	错误和异常
+cpt 15：	异步编程
+cpt 16：反射、元数据和动态编程
+
+
+---2---.NET Core与Windows Runtime
+
+cpt 17:	Visual Studio 2015
+cpt 18：	.NET编译器平台
+cpt 19：	测试
+cpt 20：	诊断和Application Insights
+cpt 21：	任务和并行编程
+cpt 22：	任务同步
+cpt 23：	文件和流
+cpt 24：	安全性
+cpt 25：	网络
+cpt 26：	Composition
+cpt 27：	XML和JSON
+cpt 28：	本地化
+
+
+---3---Windows应用程序
+
+cpt 29：	核心XAML
+cpt 30：	样式化XAML应用程序
+cpt 31：	模式和XAML应用程序
+cpt 32：	Windows应用程序：用户界面
+cpt 33：	高级Windows应用程序
+cpt 34：	带WPF的Windows桌面应用程序
+cpt 35：	用WPF创建文档
+cpt 36：	部署Windows应用程序
+
+
+---4---Web应用程序和服务
+
+cpt 37：	ADO.NET
+cpt 38：	Entity Framework Core
+cpt 39：	Windows服务
+cpt 40：	ASP.NET Core
+cpt 41：	ASP.NET MVC
+cpt 42：ASP.NET Web API
+cpt 43：	WebHooks和SignalR
+cpt 44：	WCF
+cpt 45：	部署网站和服务
