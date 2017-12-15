@@ -33,3 +33,6 @@ tag: unity
 * 更新网络布告栏
 ····
 ## 将数据发送到Web服务器 ##
+
+* WWWForm类用于http发送请求post
+* WWW类用于http接受请求get
