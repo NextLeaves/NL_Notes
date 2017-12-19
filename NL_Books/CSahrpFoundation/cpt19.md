@@ -7,6 +7,8 @@ tag: csharp
 * 第19章
 * XML和JSON
 
+<!--more-->
+
 # XML和JSON #
 
 * XML和JSON都是数据语言，以简单的文本模式存储数据

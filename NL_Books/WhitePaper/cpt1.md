@@ -4,6 +4,10 @@ tag: job
 
 ---
 
+* Interview
+
+<!--more-->
+
 ## 简历 ##
 
 1. 格式

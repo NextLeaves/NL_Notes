@@ -4,6 +4,8 @@ tag: arithmatic
 
 ---
 
+* String & Array
+
 <!--more-->
 
 ## 数组与字符串 ##
