@@ -39,3 +39,39 @@ tag: csharp
 * 引入头文件：
 	* using System.Data.Entity;
 	* using System.ComponentModel.DataAnnotations;
+* 特性：**[key]**标志递增序列的标记，且必须持有该**属性**
+* DbSet<>：用于存放数据组
+* DbContext：集合表所需继承的类
+
+## 4. 数据库存放存放的位置 ##
+
+* 默认存储位置：**C:\Users\wp8**
+* 数据库的服务器名：**(localdb)\MSSQLLocalDB**
+
+## 5. 导航数据库关系 ##
+
+* Entity Framework最强大的功能是能够自动的创建**Linq对象**，实现发现对应的数据表之间的关系
+* 操作步骤：
+	1. [key]：修饰标识列
+	2. virtual 修饰需要存在关系的属性
+	3. 先生成数据表**using(var db = new BookContext())**
+	4. 然后对相应的数据生成对象，然后存储在数据表中
+	5. 相应的存储在对应的关系集合中
+
+## 5. 处理迁移 ##
+
+* 目的：若对之前设计的数据格式、类型、关系不满意，可以通过迁移的方式，重新重建一个新的数据库格式
+* 若直接改变CodeFirst的格式，会出现以下报错
+	* System.InvalidOperatorException
+* 只有通过迁移，才能实现体系的改变
+* 使数据库与改变的类保持一直是很复杂的，有了EntityFramework相对步骤较少
+	* 添加NuGet包，**CodeFirstMigrations**
+	* Tools|NuGet Package Manger|Package Manager Console
+	* Enable-Migrations -EnableAutomaticMigrations
+	* update-Database
+
+## 6. Entity中创建和查询XML ##
+
+1. using System.Xml.Linq;
+2. 添加Entity Framework，NuGet工具
+3. Linq to Entity，然后使用Xml相关的语句，创建Xml数据语言
