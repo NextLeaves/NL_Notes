@@ -57,3 +57,27 @@ tag: csharp
 
 * 常见的多线程错误：**死锁（dead lock）**
 	* lock会遇到死锁的情况，使用**Monitor类**来处理
+* **Monitor.TryEnter(Object lockObject,Timespan timespan);**
+	* 使用if-else进行判断
+	* 返回值true|false，如果超出时间，那么会跳出死锁，继续执行下面的语句
+	* 若**造成死锁**，那么会返回值false，然后进行else语句的部分
+* **lock(){}**其实是Monitor类的一个语法糖
+	* try...catch
+	* acquiredLock:bool
+	* Monitor.Enter
+	* Monitor.Exit
+
+## 多线程中的异常处理 ##
+
+* 多线程的异常处理，只能在线程中捕获，不能再主线程部分，辅助线程的异常
+* 异常未被捕获，一般是导致应用程序无法崩溃
+	* 但是在.NET1.0和1.1中，该行为是不一样的，未被捕获的异常不会强制应用程序关闭
+	* 可以修改程序的配置文件
+
+`
+
+	<configuration>
+		<runtime>
+			<legacyUnhandledExceptionPolicy enabled="1" />
+		</runtime>
+	</configuration>
