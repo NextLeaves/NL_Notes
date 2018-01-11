@@ -30,6 +30,7 @@ tag: csharp
 * 实现创建数据的数据，也就是说：数据的位置信息、存储大小、信息域等
 * **反射**可以获取程序的**自定义特性**的数据，决定了代码的执行方式
 	* 可以在实现有扩展框架的代码中，实现加载插件或模块
+	* 自定义特性可以用于支持自定义许可类进行声明性的代码访问安全检查
 
 ### 2.1 编写自定义特性 ###
 
@@ -43,7 +44,7 @@ tag: csharp
 
 #### 2.1.1 AttributeUsage ####
 
-* System.AttributeUsage;是元属性，只能用于修饰自定义属性
+* System.AttributeUsage;是元属性，只能用于修饰自定义属性的类
 * 其中**AttributeTargets枚举**中的asembly和modul可以应用于程序集和模块，可以放置在任何位置，但是需要声明表示：如：
 	* [assembly:SomeAssemblyAttribute(parameters)]
 	* [module:SomeModuleAttribute(parameters)]
@@ -67,12 +68,14 @@ tag: csharp
 
 ### 3.1 System.Type类 ###
 
+* Type类是一个抽象的基类
+* Type类有与其他数据类型相匹配的派生类
 * 获取类型的三个方式：
 	1. typeof()
 	2. object.GetType() (成员方法)
 	3. Type.GetType() (静态方法)
 * Type是许多反射功能的入口
-* Type中许多可用属性是只读属性，不能进行修改类型
+* Type中许多可用属性是只读属性，不能进行修改类型；可以用于确定类型，但是不能修改类型
 
 #### 3.1.1 Type的属性 ####
 
@@ -87,22 +90,29 @@ tag: csharp
 	* IsClass
 	* IsAbstract
 	* IsEnum
-	* IsPrimitive
+	* IsPrimitive（预定义类型）
 	* IsValueType
 * 也可以将类型存储为Assembly实例的一个引用用来返回
 	* Type t = typeof(Vector);
-	* Assembly containAssembly=new Assembly(t);
+	* Assembly containAssembly=t.Assembly;
 * Type类型中的方法：（更多的是用于返回类型的具体**成员信息**）
 	* GetMethod()、GetMethods()：返回方法的细节，返回System.Reflection.MethodInfo对象的引用
 	* 其中包含的枚举**BindingFlags**枚举值：用于选择获取的成员信息，比如公共方法，私有方法，静态方法
 	* MemberInfo对象无法获取对象类型的**函数签名**，要获取**函数签名**，需要MemberInfo和更特殊的对象，即需要分别获取每一种类型的成员的详细信息
+* **类型集说明：**
+	* MemberInfo/GetMember()/GetMembers()/GetDefalutMembers()
+		* MethodInfo/GetMethod()/GetMethods()
+		* FieldInfor/GetField()/GetFields()
+		* EventInfo/GetEvent()/GetEvents()
+		* PropertyInfo/GetProperty()/GetPropertys()
+		* ConstructorInfo/GetConstrctor()/GetConstrctors()
 
 ### 3.3 Assembly类 ###
 
 * 位于System.Reflection；名称空间下
-* 可以读取程序集的元数据、以及访问程序集中的方法（前提程序集是可加载的）
+* 可以读取程序集的元数据、以及访问程序集中的方法（前提程序集是可加载的）74
 * 加载**程序集**的方法
-	* Load()：从本地文件或者全局程序集缓存中寻找相应的字符串内容
+	* Load()：从**本地文件**或者**全局程序集缓存**中寻找相应的字符串内容
 	* LoadFrom()：从指定的位置找出程序集
 * 获取**程序集中的所有类型**
 	* GetTypes()
@@ -110,7 +120,7 @@ tag: csharp
 	* 为什么会费经周折的为自定义类型编写类？原因在于，继承自Attribute类的子类都可以通过以下方式保存
 	* Attribute[] attributes=Attribute.GetCustomAttributes(assembly);
 * 获取**类型下的属性、方法等的自定义类型**
-	* 需要获取MemberInfo、MethodInfo对象，调用GetAttribute()方法
+	* 通过Type类型来获取，需要获取MemberInfo、MethodInfo对象，调用GetAttribute()方法
 	* MemberInfo、MethodInfo调用Type类对象的GetMemberInfo()
 
 ---

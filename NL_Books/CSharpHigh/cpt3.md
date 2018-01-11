@@ -272,29 +272,29 @@ tag: High CSharp
 * 格式：
 	1. 静态的类进行扩展：Public Static class StringExtension{}
 	2. 函数参数为this修饰扩展的类型
-	3. 即使是静态的函数，但是同样通过对象来书写；编译器会修改为静态访问方式，用于区分，扩展方法
+	3. 即使是**静态的函数**，但是同样通过**对象来书写**；编译器会修改为静态访问方式，用于区分，扩展方法
 * 如果在扩展函数的原函数中有同名函数，则优先调用原函数
 * 且扩展函数，需要包含在相对应的原函数所拥有的命名空间内
 * Linq(Language Integrated Query)语法，运用很多扩展方法的写法
 
 `
 
-public static class StringExtension
-    {
-        public static int WordsofCount(this string s) => s.Split(" ").Length;
-    }
-
-    class A
-    {
-        public string x;
-
-
-    }
-
-    static class AExtension
-    {
-        public static void SendMessage(this A a) => Console.WriteLine(a.x);
-    }
+	public static class StringExtension
+	    {
+	        public static int WordsofCount(this string s) => s.Split(" ").Length;
+	    }
+	
+	    class A
+	    {
+	        public string x;
+	
+	
+	    }
+	
+	    static class AExtension
+	    {
+	        public static void SendMessage(this A a) => Console.WriteLine(a.x);
+	    }
     
 ## Object类 ##
 
